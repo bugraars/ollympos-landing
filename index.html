@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ollympos</title>
+<style>
+  :root{
+    --ink:#1a0d52;
+    --muted:#8b8aa8;
+    --accent:#6c5ce7;
+    --bg:#ffffff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+    -webkit-font-smoothing:antialiased;
+    position:relative;
+  }
+  /* Tüm sayfayı kaplayan sürekli arka plan katmanı — bölümler arası sınır olmaz */
+  body::before{
+    content:"";position:fixed;inset:0;z-index:-2;
+    background:linear-gradient(180deg,#ffffff 0%,#fdfbff 55%,#f3f0fb 100%);
+  }
+
+  /* ---- Language switch ---- */
+  .lang-bar{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    display:flex;justify-content:flex-end;gap:6px;
+    padding:16px 24px;
+  }
+  .lang-bar button{
+    border:1px solid rgba(26,13,82,.15);
+    background:rgba(255,255,255,.6);
+    backdrop-filter:blur(8px);
+    color:var(--ink);
+    font-weight:600;font-size:13px;
+    padding:6px 12px;border-radius:20px;cursor:pointer;
+    transition:.2s;
+  }
+  .lang-bar button:hover{background:rgba(108,92,231,.12);}
+  .lang-bar button.active{background:var(--accent);color:#fff;border-color:var(--accent);}
+
+  /* ---- Hero ---- */
+  .hero{
+    min-height:100vh;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;padding:24px;position:relative;overflow:hidden;
+    background:transparent;
+  }
+  .hero::before{
+    content:"";position:absolute;width:140vmax;height:140vmax;
+    top:50%;left:50%;transform-origin:center;
+    background:
+      radial-gradient(circle at 35% 45%, rgba(255,120,200,.45), transparent 38%),
+      radial-gradient(circle at 62% 42%, rgba(120,150,255,.5), transparent 42%),
+      radial-gradient(circle at 72% 55%, rgba(120,235,235,.5), transparent 40%),
+      radial-gradient(circle at 50% 50%, rgba(180,140,255,.35), transparent 55%);
+    filter:blur(45px);z-index:0;
+    animation:floaty 55s ease-in-out infinite alternate;
+    -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 70%,transparent 100%);
+            mask-image:linear-gradient(180deg,#000 0%,#000 70%,transparent 100%);
+  }
+  @keyframes floaty{
+    0%   {transform:translate(-53%,-50%) scale(1) rotate(0deg);}
+    50%  {transform:translate(-47%,-52%) scale(1.06) rotate(8deg);}
+    100% {transform:translate(-50%,-48%) scale(1.02) rotate(-6deg);}
+  }
+  .hero-content{position:relative;z-index:1;}
+  .hero .eyebrow{
+    font-size:clamp(18px,3vw,26px);font-weight:700;color:var(--accent);
+    margin-bottom:24px;letter-spacing:.5px;height:1.3em;overflow:hidden;
+  }
+  .rotator{display:inline-block;animation:rotword 2.2s ease both;}
+  @keyframes rotword{
+    0%   {opacity:0;transform:translateY(10px);}
+    15%  {opacity:1;transform:translateY(0);}
+    85%  {opacity:1;transform:translateY(0);}
+    100% {opacity:0;transform:translateY(-10px);}
+  }
+  .hero h1{font-size:clamp(72px,16vw,200px);font-weight:800;line-height:.92;letter-spacing:-3px;}
+  .hero .sub{font-size:clamp(18px,3.2vw,30px);color:var(--muted);font-weight:600;margin-top:28px;max-width:520px;line-height:1.35;}
+  .scroll-cue{
+    position:absolute;bottom:36px;left:50%;transform:translateX(-50%);
+    z-index:1;color:var(--muted);font-size:13px;font-weight:600;
+    display:flex;flex-direction:column;align-items:center;gap:8px;
+    text-decoration:none;cursor:pointer;
+  }
+  .scroll-cue .arrow{width:22px;height:22px;border-right:2px solid var(--accent);border-bottom:2px solid var(--accent);transform:rotate(45deg);animation:bounce 1.6s infinite;}
+  @keyframes bounce{0%,100%{transform:translateY(0) rotate(45deg);}50%{transform:translateY(8px) rotate(45deg);}}
+
+  /* ---- Contact ---- */
+  .contact{
+    min-height:100vh;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;padding:64px 24px;
+    background:transparent;position:relative;overflow:hidden;
+  }
+  /* Contact bölümüne hero ile aynı renklerin sönük yansıması — geçiş kaynaşsın */
+  .contact::before{
+    content:"";position:absolute;inset:0;z-index:-1;
+    background:
+      radial-gradient(circle at 25% 30%, rgba(255,120,200,.18), transparent 45%),
+      radial-gradient(circle at 80% 75%, rgba(120,235,235,.2), transparent 45%),
+      radial-gradient(circle at 60% 20%, rgba(120,150,255,.16), transparent 50%);
+    filter:blur(30px);
+  }
+  .contact h2{font-size:clamp(34px,7vw,64px);font-weight:800;margin-bottom:16px;letter-spacing:-1px;}
+  .contact p{font-size:clamp(16px,2.5vw,20px);color:var(--muted);font-weight:500;max-width:480px;margin-bottom:36px;line-height:1.5;}
+  .mail-btn{
+    display:inline-block;background:var(--accent);color:#fff;
+    font-size:clamp(16px,2.5vw,20px);font-weight:700;
+    padding:16px 36px;border-radius:40px;text-decoration:none;
+    box-shadow:0 12px 30px rgba(108,92,231,.35);transition:.25s;
+  }
+  .mail-btn:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(108,92,231,.45);}
+  .contact .footer{margin-top:56px;font-size:13px;color:var(--muted);}
+</style>
+</head>
+<body>
+
+  <nav class="lang-bar">
+    <button data-lang="tr" class="active">TR</button>
+    <button data-lang="en">EN</button>
+    <button data-lang="ru">RU</button>
+    <button data-lang="de">DE</button>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-content">
+      <p class="eyebrow"><span class="rotator" id="rotator">AI Çözümleri</span></p>
+      <h1 data-i18n="title">ollympos</h1>
+      <p class="sub" data-i18n="subtitle">Sizin için yenilikçi çözümler</p>
+    </div>
+    <a href="#contact" class="scroll-cue">
+      <span data-i18n="scroll">İletişim</span>
+      <span class="arrow"></span>
+    </a>
+  </header>
+
+  <section class="contact" id="contact">
+    <h2 data-i18n="contactTitle">Contact Us</h2>
+    <p data-i18n="contactText">Projeniz hakkında konuşalım. Size en kısa sürede dönüş yapalım.</p>
+    <a class="mail-btn" href="mailto:info@ollympos.com">info@ollympos.com</a>
+    <p class="footer">© 2026 ollympos</p>
+  </section>
+
+<script>
+  const i18n = {
+    tr:{title:"ollympos",subtitle:"Sizin için yenilikçi çözümler",scroll:"İletişim",contactTitle:"Contact Us",contactText:"Projeniz hakkında konuşalım. Size en kısa sürede dönüş yapalım.",services:["AI Çözümleri","Mobil","Web","Danışmanlık"]},
+    en:{title:"ollympos",subtitle:"Innovative solutions for you",scroll:"Contact",contactTitle:"Contact Us",contactText:"Let's talk about your project. We'll get back to you as soon as possible.",services:["AI Solutions","Mobile","Web","Consulting"]},
+    ru:{title:"ollympos",subtitle:"Инновационные решения для вас",scroll:"Контакты",contactTitle:"Contact Us",contactText:"Давайте обсудим ваш проект. Мы свяжемся с вами в кратчайшие сроки.",services:["ИИ-решения","Мобильные","Веб","Консалтинг"]},
+    de:{title:"ollympos",subtitle:"Innovative Lösungen für Sie",scroll:"Kontakt",contactTitle:"Contact Us",contactText:"Lassen Sie uns über Ihr Projekt sprechen. Wir melden uns schnellstmöglich bei Ihnen.",services:["KI-Lösungen","Mobil","Web","Beratung"]}
+  };
+
+  const rotator = document.getElementById('rotator');
+  let services = i18n.tr.services, sIndex = 0;
+  function nextService(){
+    sIndex = (sIndex+1) % services.length;
+    rotator.textContent = services[sIndex];
+    rotator.style.animation = 'none';
+    void rotator.offsetWidth;
+    rotator.style.animation = 'rotword 2.2s ease both';
+  }
+  setInterval(nextService, 2200);
+
+  const buttons = document.querySelectorAll('.lang-bar button');
+  function setLang(lang){
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(el=>{
+      const key = el.getAttribute('data-i18n');
+      if(i18n[lang][key]) el.textContent = i18n[lang][key];
+    });
+    buttons.forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
+    services = i18n[lang].services;
+    sIndex = sIndex % services.length;
+    rotator.textContent = services[sIndex];
+  }
+  buttons.forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+
+  // Tarayıcı diline göre başlat
+  const browser = (navigator.language||'tr').slice(0,2);
+  setLang(i18n[browser] ? browser : 'tr');
+</script>
+</body>
+</html>
