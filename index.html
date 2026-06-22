@@ -11,7 +11,6 @@
 <link rel="canonical" href="https://ollympos.com/">
 <meta name="theme-color" content="#6c5ce7">
 
-<!-- Open Graph / sosyal paylaşım -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ollympos.com/">
 <meta property="og:title" content="ollympos — Yazılım & Teknoloji Çözümleri">
@@ -24,10 +23,8 @@
 <meta name="twitter:title" content="ollympos — Yazılım & Teknoloji Çözümleri">
 <meta name="twitter:description" content="CRM, otel ve emlak yazılımları, mobil uygulamalar, web ve AI çözümleri.">
 
-<!-- Favicon: gradient 'o' (harici dosya gerektirmez) -->
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23ff78c8'/%3E%3Cstop offset='0.5' stop-color='%237b8cff'/%3E%3Cstop offset='1' stop-color='%2378ebeb'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='22' fill='%231a0d52'/%3E%3Ccircle cx='50' cy='50' r='24' fill='none' stroke='url(%23g)' stroke-width='12'/%3E%3C/svg%3E">
 
-<!-- Yapısal veri (JSON-LD) - arama motorları için -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -35,6 +32,7 @@
   "name": "ollympos",
   "url": "https://ollympos.com",
   "email": "info@ollympos.com",
+  "sameAs": ["https://www.linkedin.com/company/ollympos"],
   "description": "İşletmeler için yenilikçi yazılım ve teknoloji çözümleri: CRM, otel yönetim yazılımları, emlak yazılımları, mobil uygulamalar, web ve yapay zeka çözümleri.",
   "address": {
     "@type": "PostalAddress",
@@ -67,18 +65,19 @@
     -webkit-font-smoothing:antialiased;
     position:relative;
   }
-  /* Tüm sayfayı kaplayan sürekli arka plan katmanı — bölümler arası sınır olmaz */
   body::before{
     content:"";position:fixed;inset:0;z-index:-2;
     background:linear-gradient(180deg,#ffffff 0%,#fdfbff 55%,#f3f0fb 100%);
   }
 
-  /* ---- Language switch ---- */
   .lang-bar{
     position:fixed;top:0;left:0;right:0;z-index:50;
-    display:flex;justify-content:flex-end;gap:6px;
-    padding:16px 24px;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 24px;
   }
+  .lang-bar-logo{display:block;width:36px;height:36px;flex-shrink:0;}
+  .lang-bar-logo svg{width:36px;height:36px;display:block;}
+  .lang-bar-langs{display:flex;gap:6px;align-items:center;}
   .lang-bar button{
     border:1px solid rgba(26,13,82,.15);
     background:rgba(255,255,255,.6);
@@ -91,7 +90,6 @@
   .lang-bar button:hover{background:rgba(108,92,231,.12);}
   .lang-bar button.active{background:var(--accent);color:#fff;border-color:var(--accent);}
 
-  /* ---- Hero ---- */
   .hero{
     min-height:100vh;
     display:flex;flex-direction:column;align-items:center;justify-content:center;
@@ -139,14 +137,12 @@
   .scroll-cue .arrow{width:22px;height:22px;border-right:2px solid var(--accent);border-bottom:2px solid var(--accent);transform:rotate(45deg);animation:bounce 1.6s infinite;}
   @keyframes bounce{0%,100%{transform:translateY(0) rotate(45deg);}50%{transform:translateY(8px) rotate(45deg);}}
 
-  /* ---- Contact ---- */
   .contact{
     min-height:100vh;
     display:flex;flex-direction:column;align-items:center;justify-content:center;
     text-align:center;padding:64px 24px;
     background:transparent;position:relative;overflow:hidden;
   }
-  /* Contact bölümüne hero ile aynı renklerin sönük yansıması — geçiş kaynaşsın */
   .contact::before{
     content:"";position:absolute;inset:0;z-index:-1;
     background:
@@ -157,18 +153,25 @@
   }
   .contact h2{font-size:clamp(34px,7vw,64px);font-weight:800;margin-bottom:16px;letter-spacing:-1px;}
   .contact p{font-size:clamp(16px,2.5vw,20px);color:var(--muted);font-weight:500;max-width:480px;margin-bottom:36px;line-height:1.5;}
+
+  /* Shared button height */
+  :root{--btn-h:54px;--btn-fs:clamp(15px,2vw,18px);}
+
   .mail-btn{
-    display:inline-block;background:var(--accent);color:#fff;
-    font-size:clamp(16px,2.5vw,20px);font-weight:700;
-    padding:16px 36px;border-radius:40px;text-decoration:none;
+    display:inline-flex;align-items:center;justify-content:center;
+    height:var(--btn-h);
+    background:var(--accent);color:#fff;
+    font-size:var(--btn-fs);font-weight:700;
+    padding:0 32px;border-radius:40px;text-decoration:none;
     box-shadow:0 12px 30px rgba(108,92,231,.35);transition:.25s;
+    white-space:nowrap;
   }
   .mail-btn:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(108,92,231,.45);}
-  /* Mail + kopyala satırı */
-  .mail-row{display:inline-flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:center;}
+
   .copy-btn{
     display:inline-flex;align-items:center;justify-content:center;
-    width:52px;height:52px;border-radius:50%;
+    width:var(--btn-h);height:var(--btn-h);
+    flex-shrink:0;border-radius:50%;
     background:rgba(108,92,231,.1);border:1px solid rgba(108,92,231,.25);
     color:var(--accent);cursor:pointer;transition:.2s;position:relative;
   }
@@ -181,24 +184,59 @@
     opacity:0;pointer-events:none;transition:.2s;
   }
   .copy-btn.copied .tip{opacity:1;}
+
+  /* ---- LinkedIn Button ---- */
+  .linkedin-btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    height:var(--btn-h);
+    background:#0a66c2;color:#fff;
+    font-size:var(--btn-fs);font-weight:700;
+    padding:0 32px;border-radius:40px;text-decoration:none;
+    box-shadow:0 10px 28px rgba(10,102,194,.3);transition:.25s;
+    white-space:nowrap;
+  }
+  .linkedin-btn:hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(10,102,194,.42);background:#0859a8;}
+  .linkedin-btn svg{width:20px;height:20px;flex-shrink:0;}
+
+  /* LinkedIn üstte, mail+copy altta — ikisi aynı genişlik */
+  .btn-group{
+    display:inline-flex;flex-direction:column;align-items:stretch;gap:12px;
+  }
+  .linkedin-btn{width:100%;}
+  .mail-row{display:flex;align-items:center;gap:12px;}
+  .mail-btn{flex:1;}
+
   .contact .footer{margin-top:56px;font-size:13px;color:var(--muted);}
-  /* Görsel olarak gizli, arama motorları ve ekran okuyucular için erişilebilir */
   .visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;}
 </style>
 </head>
 <body>
 
-  <!-- Arama motorları ve erişilebilirlik için (görsel olarak gizli, tasarımı bozmaz) -->
   <div class="visually-hidden">
     <h2>ollympos Yazılım ve Teknoloji Çözümleri</h2>
     <p>ollympos, işletmeler için yenilikçi yazılım ve teknoloji çözümleri geliştirir. Hizmetlerimiz arasında CRM yazılımları, otel yönetim yazılımları, emlak yazılımları, mobil uygulama geliştirme, web çözümleri ve yapay zeka (AI) çözümleri yer alır. Antalya merkezli ekibimizle Türkiye genelinde ve uluslararası projelerde çalışıyoruz.</p>
   </div>
 
   <nav class="lang-bar">
-    <button data-lang="tr" class="active">TR</button>
-    <button data-lang="en">EN</button>
-    <button data-lang="ru">RU</button>
-    <button data-lang="de">DE</button>
+    <a href="#" class="lang-bar-logo" aria-label="ollympos ana sayfa">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+        <defs>
+          <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#ff78c8"/>
+            <stop offset="0.5" stop-color="#7b8cff"/>
+            <stop offset="1" stop-color="#78ebeb"/>
+          </linearGradient>
+        </defs>
+        <rect width="100" height="100" rx="22" fill="#1a0d52"/>
+        <circle cx="50" cy="50" r="24" fill="none" stroke="url(#g)" stroke-width="12"/>
+      </svg>
+    </a>
+    <div class="lang-bar-langs">
+      <button data-lang="tr" class="active">TR</button>
+      <button data-lang="en">EN</button>
+      <button data-lang="ru">RU</button>
+      <button data-lang="de">DE</button>
+    </div>
   </nav>
 
   <header class="hero">
@@ -216,16 +254,26 @@
   <section class="contact" id="contact">
     <h2 data-i18n="contactTitle">Contact Us</h2>
     <p data-i18n="contactText">Projeniz hakkında konuşalım. Size en kısa sürede dönüş yapalım.</p>
-    <div class="mail-row">
-      <a class="mail-btn" href="mailto:info@ollympos.com">info@ollympos.com</a>
-      <button class="copy-btn" id="copyBtn" aria-label="E-posta adresini kopyala">
-        <span class="tip" id="copyTip">Kopyala</span>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+
+    <div class="btn-group">
+      <a class="linkedin-btn" href="https://www.linkedin.com/company/ollympos" target="_blank" rel="noopener noreferrer" aria-label="ollympos LinkedIn sayfası">
+        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
         </svg>
-      </button>
+        ollympos
+      </a>
+      <div class="mail-row">
+        <a class="mail-btn" href="mailto:info@ollympos.com">info@ollympos.com</a>
+        <button class="copy-btn" id="copyBtn" aria-label="E-posta adresini kopyala">
+          <span class="tip" id="copyTip">Kopyala</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+        </button>
+      </div>
     </div>
+
     <p class="footer">© 2026 ollympos</p>
   </section>
 
@@ -264,7 +312,6 @@
   }
   buttons.forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
 
-  // E-posta kopyalama
   const copyBtn = document.getElementById('copyBtn');
   const copyTip = document.getElementById('copyTip');
   let copyLabels = i18n.tr.copy;
@@ -280,7 +327,6 @@
     setTimeout(()=>{copyBtn.classList.remove('copied');copyTip.textContent=copyLabels[0];},1800);
   });
 
-  // Tarayıcı diline göre başlat
   const browser = (navigator.language||'tr').slice(0,2);
   setLang(i18n[browser] ? browser : 'tr');
 </script>
