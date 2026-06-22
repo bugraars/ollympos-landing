@@ -3,7 +3,54 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ollympos</title>
+<title>ollympos — Yazılım & Teknoloji Çözümleri | CRM, Otel, Emlak, Mobil</title>
+<meta name="description" content="ollympos, işletmeler için yenilikçi yazılım ve teknoloji çözümleri geliştirir: CRM, otel yönetim yazılımları, emlak yazılımları, mobil uygulamalar, web ve AI çözümleri.">
+<meta name="keywords" content="yazılım çözümleri, CRM yazılımı, otel yazılımı, emlak yazılımı, mobil uygulama geliştirme, web yazılımı, yapay zeka çözümleri, AI, teknoloji danışmanlığı, ollympos, software solutions, hotel software, real estate software">
+<meta name="author" content="ollympos">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ollympos.com/">
+<meta name="theme-color" content="#6c5ce7">
+
+<!-- Open Graph / sosyal paylaşım -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ollympos.com/">
+<meta property="og:title" content="ollympos — Yazılım & Teknoloji Çözümleri">
+<meta property="og:description" content="CRM, otel ve emlak yazılımları, mobil uygulamalar, web ve AI çözümleri. İşletmeniz için yenilikçi teknoloji.">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="ru_RU">
+<meta property="og:locale:alternate" content="de_DE">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ollympos — Yazılım & Teknoloji Çözümleri">
+<meta name="twitter:description" content="CRM, otel ve emlak yazılımları, mobil uygulamalar, web ve AI çözümleri.">
+
+<!-- Favicon: gradient 'o' (harici dosya gerektirmez) -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23ff78c8'/%3E%3Cstop offset='0.5' stop-color='%237b8cff'/%3E%3Cstop offset='1' stop-color='%2378ebeb'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='22' fill='%231a0d52'/%3E%3Ccircle cx='50' cy='50' r='24' fill='none' stroke='url(%23g)' stroke-width='12'/%3E%3C/svg%3E">
+
+<!-- Yapısal veri (JSON-LD) - arama motorları için -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "ollympos",
+  "url": "https://ollympos.com",
+  "email": "info@ollympos.com",
+  "description": "İşletmeler için yenilikçi yazılım ve teknoloji çözümleri: CRM, otel yönetim yazılımları, emlak yazılımları, mobil uygulamalar, web ve yapay zeka çözümleri.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Antalya",
+    "addressCountry": "TR"
+  },
+  "makesOffer": [
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "CRM Yazılımı" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Otel Yönetim Yazılımı" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Emlak Yazılımı" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mobil Uygulama Geliştirme" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web Yazılımı" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Yapay Zeka (AI) Çözümleri" } }
+  ]
+}
+</script>
 <style>
   :root{
     --ink:#1a0d52;
@@ -117,10 +164,35 @@
     box-shadow:0 12px 30px rgba(108,92,231,.35);transition:.25s;
   }
   .mail-btn:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(108,92,231,.45);}
+  /* Mail + kopyala satırı */
+  .mail-row{display:inline-flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:center;}
+  .copy-btn{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:52px;height:52px;border-radius:50%;
+    background:rgba(108,92,231,.1);border:1px solid rgba(108,92,231,.25);
+    color:var(--accent);cursor:pointer;transition:.2s;position:relative;
+  }
+  .copy-btn:hover{background:rgba(108,92,231,.18);transform:translateY(-2px);}
+  .copy-btn svg{width:20px;height:20px;}
+  .copy-btn .tip{
+    position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);
+    background:var(--ink);color:#fff;font-size:12px;font-weight:600;
+    padding:5px 10px;border-radius:6px;white-space:nowrap;
+    opacity:0;pointer-events:none;transition:.2s;
+  }
+  .copy-btn.copied .tip{opacity:1;}
   .contact .footer{margin-top:56px;font-size:13px;color:var(--muted);}
+  /* Görsel olarak gizli, arama motorları ve ekran okuyucular için erişilebilir */
+  .visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;}
 </style>
 </head>
 <body>
+
+  <!-- Arama motorları ve erişilebilirlik için (görsel olarak gizli, tasarımı bozmaz) -->
+  <div class="visually-hidden">
+    <h2>ollympos Yazılım ve Teknoloji Çözümleri</h2>
+    <p>ollympos, işletmeler için yenilikçi yazılım ve teknoloji çözümleri geliştirir. Hizmetlerimiz arasında CRM yazılımları, otel yönetim yazılımları, emlak yazılımları, mobil uygulama geliştirme, web çözümleri ve yapay zeka (AI) çözümleri yer alır. Antalya merkezli ekibimizle Türkiye genelinde ve uluslararası projelerde çalışıyoruz.</p>
+  </div>
 
   <nav class="lang-bar">
     <button data-lang="tr" class="active">TR</button>
@@ -144,16 +216,25 @@
   <section class="contact" id="contact">
     <h2 data-i18n="contactTitle">Contact Us</h2>
     <p data-i18n="contactText">Projeniz hakkında konuşalım. Size en kısa sürede dönüş yapalım.</p>
-    <a class="mail-btn" href="mailto:info@ollympos.com">info@ollympos.com</a>
+    <div class="mail-row">
+      <a class="mail-btn" href="mailto:info@ollympos.com">info@ollympos.com</a>
+      <button class="copy-btn" id="copyBtn" aria-label="E-posta adresini kopyala">
+        <span class="tip" id="copyTip">Kopyala</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+        </svg>
+      </button>
+    </div>
     <p class="footer">© 2026 ollympos</p>
   </section>
 
 <script>
   const i18n = {
-    tr:{title:"ollympos",subtitle:"Sizin için yenilikçi çözümler",scroll:"İletişim",contactTitle:"Contact Us",contactText:"Projeniz hakkında konuşalım. Size en kısa sürede dönüş yapalım.",services:["AI Çözümleri","Mobil","Web","Danışmanlık"]},
-    en:{title:"ollympos",subtitle:"Innovative solutions for you",scroll:"Contact",contactTitle:"Contact Us",contactText:"Let's talk about your project. We'll get back to you as soon as possible.",services:["AI Solutions","Mobile","Web","Consulting"]},
-    ru:{title:"ollympos",subtitle:"Инновационные решения для вас",scroll:"Контакты",contactTitle:"Contact Us",contactText:"Давайте обсудим ваш проект. Мы свяжемся с вами в кратчайшие сроки.",services:["ИИ-решения","Мобильные","Веб","Консалтинг"]},
-    de:{title:"ollympos",subtitle:"Innovative Lösungen für Sie",scroll:"Kontakt",contactTitle:"Contact Us",contactText:"Lassen Sie uns über Ihr Projekt sprechen. Wir melden uns schnellstmöglich bei Ihnen.",services:["KI-Lösungen","Mobil","Web","Beratung"]}
+    tr:{title:"ollympos",subtitle:"Sizin için yenilikçi çözümler",scroll:"İletişim",contactTitle:"Contact Us",contactText:"Projeniz hakkında konuşalım. Size en kısa sürede dönüş yapalım.",services:["AI Çözümleri","CRM Yazılımları","Otel Yazılımları","Emlak Yazılımları","Mobil Uygulamalar","Web Çözümleri","Danışmanlık"],copy:["Kopyala","Kopyalandı!"]},
+    en:{title:"ollympos",subtitle:"Innovative solutions for you",scroll:"Contact",contactTitle:"Contact Us",contactText:"Let's talk about your project. We'll get back to you as soon as possible.",services:["AI Solutions","CRM Software","Hotel Software","Real Estate Software","Mobile Apps","Web Solutions","Consulting"],copy:["Copy","Copied!"]},
+    ru:{title:"ollympos",subtitle:"Инновационные решения для вас",scroll:"Контакты",contactTitle:"Contact Us",contactText:"Давайте обсудим ваш проект. Мы свяжемся с вами в кратчайшие сроки.",services:["ИИ-решения","CRM-системы","ПО для отелей","ПО для недвижимости","Мобильные приложения","Веб-решения","Консалтинг"],copy:["Копировать","Скопировано!"]},
+    de:{title:"ollympos",subtitle:"Innovative Lösungen für Sie",scroll:"Kontakt",contactTitle:"Contact Us",contactText:"Lassen Sie uns über Ihr Projekt sprechen. Wir melden uns schnellstmöglich bei Ihnen.",services:["KI-Lösungen","CRM-Software","Hotel-Software","Immobilien-Software","Mobile Apps","Web-Lösungen","Beratung"],copy:["Kopieren","Kopiert!"]}
   };
 
   const rotator = document.getElementById('rotator');
@@ -178,8 +259,26 @@
     services = i18n[lang].services;
     sIndex = sIndex % services.length;
     rotator.textContent = services[sIndex];
+    copyLabels = i18n[lang].copy;
+    if(!copyBtn.classList.contains('copied')) copyTip.textContent = copyLabels[0];
   }
   buttons.forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+
+  // E-posta kopyalama
+  const copyBtn = document.getElementById('copyBtn');
+  const copyTip = document.getElementById('copyTip');
+  let copyLabels = i18n.tr.copy;
+  copyBtn.addEventListener('click', async ()=>{
+    const email = 'info@ollympos.com';
+    try{
+      await navigator.clipboard.writeText(email);
+    }catch(e){
+      const t=document.createElement('textarea');t.value=email;document.body.appendChild(t);t.select();document.execCommand('copy');document.body.removeChild(t);
+    }
+    copyTip.textContent = copyLabels[1];
+    copyBtn.classList.add('copied');
+    setTimeout(()=>{copyBtn.classList.remove('copied');copyTip.textContent=copyLabels[0];},1800);
+  });
 
   // Tarayıcı diline göre başlat
   const browser = (navigator.language||'tr').slice(0,2);
